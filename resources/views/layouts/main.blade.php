@@ -6,7 +6,10 @@
     <title>Управление магазина</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -124,7 +127,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="{{ route('main.index') }}" class="brand-link">
             <span class="brand-text font-weight-light">Магазин некоторых вещей</span>
         </a>
 
@@ -132,7 +135,8 @@
         <div class="sidebar">
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
@@ -142,7 +146,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{ route('product.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-gifts"></i>
                             <p>Товары</p>
                         </a>
@@ -180,12 +184,12 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-       @yield('content')
+        @yield('content')
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy; 2014-{{ now()->year }} <a href="{{ route('main.index') }}">Магазин некоторых вещей</a>.</strong>
-            Учебный проект!
+        Учебный проект!
         <div class="float-right d-none d-sm-inline-block">
             <b>Не для коммерческого использования!</b>
         </div>
@@ -207,11 +211,23 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Select2 -->
+<script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
+{{--Initialize Select2 Elements--}}
+<script>
+    $('.tags').select2()
+    $('.colors').select2()
+
+    $(function () {
+        bsCustomFileInput.init();
+    });
+</script>
 </body>
 </html>

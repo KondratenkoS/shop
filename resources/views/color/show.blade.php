@@ -43,6 +43,10 @@
                                         <td>{{ $color->id }}</td>
                                     </tr>
                                     <tr>
+                                        <td>Название цвета</td>
+                                        <td>{{ $color->name }}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Код цвета</td>
                                         <td>{{ $color->title }}</td>
                                     </tr>

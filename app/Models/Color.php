@@ -8,4 +8,9 @@ class Color extends Model
 {
     protected $table = 'colors';
     protected $guarded = false;
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

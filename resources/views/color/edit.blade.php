@@ -26,10 +26,13 @@
                     @csrf
                     @method('patch')
                     <div class="form-group">
+                        <input type="text" name="name" value="{{ $color->name }}" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <input type="text" name="title" value="{{ $color->title }}" class="form-control">
                     </div>
-
-                    <div class="form-group">
+                    <div style="width: 20px; height: 20px; background: {{ '#' . $color->title }}"></div>
+                    <div class="form-group mt-3">
                         <input type="submit" class="btn btn-primary" value="Редактировать">
                     </div>
                 </form>

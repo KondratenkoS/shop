@@ -34,13 +34,15 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Код цвета</th>
-                                    <th>Цвет</th>
+                                    <th>Название цвета</th>
+                                    <th>Код цвета</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($colors as $color)
                                     <tr>
                                         <td>{{ $color->id }}</td>
+                                        <td><a href="{{ route('color.show', $color->id) }}">{{ $color->name }}</a></td>
                                         <td><a href="{{ route('color.show', $color->id) }}">{{ $color->title }}</a></td>
                                         <td><div style="width: 16px; height: 16px; background: {{ '#' . $color->title }}"></div></td>
                                     </tr>
